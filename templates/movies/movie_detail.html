@@ -1,347 +1,445 @@
 {% extends 'movies/base.html' %}
+{% load static %}
 {% block title %} {{ movie.title }} {% endblock title %}
 
 {% block movie %}
-            <div class="content">
-            <span id="dle-speedbar"><span itemscope itemtype="../data-vocabulary.org/Breadcrumb"><a href="default.htm" itemprop="url"><span itemprop="title">ANICHAN</span></a></span> &raquo; <span itemscope itemtype="../data-vocabulary.org/Breadcrumb"><a href="vse-filmy/default.htm" itemprop="url"><span itemprop="title">Фильмы в 4К</span></a></span> &raquo; {{ movie.title }}</span>
 
 
 
+<div class="content">
+	<span id="dle-speedbar">
+		<span itemscope itemtype="../data-vocabulary.org/Breadcrumb">
+			<a href="default.htm" itemprop="url">
+				<span itemprop="title">ANICHAN</span>
+			</a>
+		</span> &raquo;
 
 
-
-               <div class="full-wrap clearfix">
-                  <div id='dle-content'><article class="full">
-   <header class="full-title">
-      <h1>{{ movie.japantitle }}</h1>
-   </header>
-   <div class="cols-mov clearfix ignore-select">
-      <div class="col-mov-left">
-         <div class="mov-img">
-            <img src="{{ movie.poster.url }}" alt="{{ movie.title }}">
-            <div class="mov-m">FHD 1080p</div>
-         </div>
-
-         <div class="rate3 clearfix rate-f">
-            <div class="pluss" id="pluss-6199" onclick="doRateLD('plus', '6199');">
-               <span class="fa fa-thumbs-o-up"></span>
-            </div>
-            <div class="minuss" id="minuss-6199" onclick="doRateLD('minus', '6199');">
-               <span class="fa fa-thumbs-o-down"></span>
-            </div>
-            <span id="ratig-layer-6199" class="ignore-select"><span class="ratingtypeplusminus ignore-select ratingplus" >+14</span></span> <span id="vote-num-id-6199">20</span>
-         </div>
+		<span itemscope itemtype="../data-vocabulary.org/Breadcrumb">
+			<a href="vse-filmy/default.htm" itemprop="url">
+				<span itemprop="title">Фильмы в 4К</span>
+			</a>
+		</span> &raquo; {{ movie.title }}
 
 
-         <div class="rates">
-            <div class="r-kp" data-label="KP">7.621</div>
-            <div class="r-imdb" data-label="IMDB">7.00</div>
-         </div>
-      </div>
-      <!-- end col-mov-left -->
-      <div class="col-mov-right">
-
-
-
-
-
-         <ul class="mov-list">
-            <li>
-               <div class="mov-label">Режиссер:</div>
-               <div class="mov-desc">
+	</span>
+	<div class="full-wrap clearfix">
+		<div id='dle-content'>
+			<article class="full">
+				<header class="full-title">
+					<h1>{{ movie.japantitle }}</h1>
+				</header>
+				<div class="cols-mov clearfix ignore-select">
+					<div class="col-mov-left">
+						<div class="mov-img">
+							<img src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+								<div class="mov-m">FHD 1080p</div>
+							</div>
+							<div class="rate3 clearfix rate-f">
+								<div class="pluss" id="pluss-6199" onclick="doRateLD('plus', '6199');">
+									<span class="fa fa-thumbs-o-up"></span>
+								</div>
+								<div class="minuss" id="minuss-6199" onclick="doRateLD('minus', '6199');">
+									<span class="fa fa-thumbs-o-down"></span>
+								</div>
+								<span id="ratig-layer-6199" class="ignore-select">
+									<span class="ratingtypeplusminus ignore-select ratingplus" >+14</span>
+								</span>
+								<span id="vote-num-id-6199">20</span>
+							</div>
+							<div class="rates">
+								<div class="r-kp" data-label="KP">7.621</div>
+								<div class="r-imdb" data-label="IMDB">7.00</div>
+							</div>
+						</div>
+						<!-- end col-mov-left -->
+						<div class="col-mov-right">
+							<ul class="mov-list">
+								<li>
+									<div class="mov-label">Режиссер:</div>
+									<div class="mov-desc">
                   {% for director in movie.directors.all %}
                      {{ director.name }}
                   {% endfor %}
                </div>
-            </li>
-            <li class="country">
-               <div class="mov-label">Страна:</div>
-               <div class="mov-desc">{{ movie.country }}</div>
-            </li>
-            <li>
-               <div class="mov-label">Герои:</div>
-               <div class="mov-desc mov-desc_actor">
+								</li>
+								<li class="country">
+									<div class="mov-label">Страна:</div>
+									<div class="mov-desc">{{ movie.country }}</div>
+								</li>
+								<li>
+									<div class="mov-label">Герои:</div>
+									<div class="mov-desc mov-desc_actor">
                   {% for hero in movie.heroes.all %}
                      {{ hero.name }},
                   {% endfor %}
                </div>
-            </li>
-            <li>
-               <div class="mov-label">Жанр:</div>
-               <div class="mov-desc">
+								</li>
+								<li>
+									<div class="mov-label">Жанр:</div>
+									<div class="mov-desc">
                   {% for ganr in movie.genre.all %}
                      {{ ganr.name }},
                   {% endfor %}
                </div>
-            </li>
-            <li>
-               <div class="mov-label">Длительность:</div>
-               <div class="mov-desc">145 мин. / 02:25</div>
-            </li>
+								</li>
+								<li>
+									<div class="mov-label">Длительность:</div>
+									<div class="mov-desc">145 мин. / 02:25</div>
+								</li>
+							</ul>
+						</div>
+						<!-- end col-mov-right -->
+					</div>
+					<!-- end cols-mov -->
+					<div style="margin-left: 40px; margin-bottom: 20px;" id="vid_over_float" vid_el_width="600px" vid_el_height="320px"></div>
+					<script type="text/javascript" async src="../https@vidroll.ru/js/videoroll_script_over.js"></script>
+					<div class="mov-desc-text full-text clearfix">
+						<p>{{ movie.description }}</p>
+						<p class="full-key">Предлагаем Вам посмотреть аниме «{{ movie.title }}» без китайских субтитров, титров и без иероглифов, а также с наилучшим звуком и переводом на русский язык.</p>
+						<p></p>
+					</div>
+					<fieldset class="skrin">
+						<legend>Скриншоты</legend>
+                        {% for image in movie.movieshots_set.all %}
 
 
+						<a href="{{ image.image.url }}" onclick="return hs.expand(this)">
+							<img src="{{ image.image.url }}" alt="{{ image.description }}">
+							</a>
+                        {% endfor %}
 
 
-
-         </ul>
-      </div>
-      <!-- end col-mov-right -->
-   </div>
-   <!-- end cols-mov -->
-
-
-
-
-
-
-   <div style="margin-left: 40px; margin-bottom: 20px;" id="vid_over_float" vid_el_width="600px" vid_el_height="320px"></div>
-<script type="text/javascript" async src="../https@vidroll.ru/js/videoroll_script_over.js"></script>
-
-
-   <div class="mov-desc-text full-text clearfix">
-      <p>{{ movie.description }}</p>
-      <p class="full-key">Предлагаем Вам посмотреть аниме «{{ movie.title }}» без китайских субтитров, титров и без иероглифов, а также с наилучшим звуком и переводом на русский язык.</p>
-      <p></p>
-   </div>
-<fieldset class="skrin"><legend>Скриншоты</legend><a href="{{ movie.poster.url }}" onclick="return hs.expand(this)"><img src="{{ movie.poster.url }}" alt="Первый скриншот" title="Первый скриншот"></a><a href="{{ movie.poster.url }}" onclick="return hs.expand(this)"><img src="{{ movie.poster.url }}" alt="Второй скриншот" title="Второй скриншот"></a><a href="{{ movie.poster.url }}" onclick="return hs.expand(this)"><img src="{{ movie.poster.url }}" alt="Третий скриншот" title="Третий скриншот"></a></fieldset>
-
-   <div class="std-block-title2">
-   <span style="margin-bottom: 15px;display: inline-block;font-size: 15px;color: #ff7373; ">Здесь доступно наилучшее качество из возможного. Поверьте, лучше Вы нигде не найдете!</span>
-      <div class="std-block-title3">
-         <p>Фильм День независимости (1996) включается в хорошем качестве UHD 4k и FULL HD 1080/720, доступное бесплатно без регистрации.</p>
-      </div>
-   </div>
-
-
-
-
-   <div class="tabsbox ignore-select">
-
-
-
-
-
-      <div class="tabs-sel">
-
-
-         <span>Смотреть онлайн</span>
-
-
-
-
-
-
-         <span class="span-trailer">Трейлер</span>
-
-
-
-
-         <a href="#full-comms" class="comm-link" title="Комментировать…"><div class="fa fa-commenting"></div></a>
-
-
-      </div>
-
-
-      <style>
+						</fieldset>
+						<div class="std-block-title2">
+							<span style="margin-bottom: 15px;display: inline-block;font-size: 15px;color: #ff7373; ">Здесь доступно наилучшее качество из возможного. Поверьте, лучше Вы нигде не найдете!</span>
+							<div class="std-block-title3">
+								<p>Фильм День независимости (1996) включается в хорошем качестве UHD 4k и FULL HD 1080/720, доступное бесплатно без регистрации.</p>
+							</div>
+						</div>
+						<div class="tabsbox ignore-select">
+							<div class="tabs-sel">
+								<span>Смотреть онлайн</span>
+								<span class="span-trailer">Трейлер</span>
+								<a href="#full-comms" class="comm-link" title="Комментировать…">
+									<div class="fa fa-commenting"></div>
+								</a>
+							</div>
+							<style>
          .vdd-wrapper {
              height: 100%;
              width: 100%!important;
          }
       </style>
+							<div class="vdd-element">
+								<div class="tabs-b video-box">
+									<div class="vim-preroll vim-overroll">
+										<iframe src="../farsihd.info/movie/5b0ab25fcd8b2a22fe33e5ea5d0504fe/iframe@b=US" width="884" height="500" frameborder="0" allowfullscreen=""></iframe>
+									</div>
+									<script type='text/javascript' id='s-6504e098f19b416e'>(function(){ var v = document.createElement('script'); v.type = 'text/javascript'; v.async = true; v.src = '../https@vimvio.ru/video/@t=overroll&p=9085&ot=embeded&sig=6504e098f19b416e'; v.charset = 'utf-8'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(v, s); })();</script>
+								</div>
+								<div class="tabs-b video-box">
+									<iframe src="trailer-cdn/6199/default.htm" width="610" height="370" frameborder="0" allowfullscreen></iframe>
+								</div>
+							</div>
+							<span style="text-align: center;width: 100%;display: inline-block;color: #bdb81d;">Обязательно выберите в правом нижнем углу плеера качество (4К) 2160</span>
+							<!--noindex-->
+							<div class="sorry-rek">* Уважаемые зрители, реклама в плеере от нас не зависит. Приносим извинения за это…</div>
+							<!--/noindex-->
+						</div>
+						<div class="cols-mov full-soc clearfix ignore-select full-soc_pt15">
+							<span>Это лучшая благодарность за нашу работу!</span>
+							<script src="../yastatic.net/share2/share.js" async="async"></script>
+							<div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,gplus,twitter" data-size="s" data-title="День независимости (1996)" data-image="" data-description=""></div>
+						</div>
+						<div class="sub-text clearfix ignore-select">
+							<span class="fa fa-warning"></span>
+							<p>Главным отличием от других онлайн кинотеатров является плеер фильма День независимости 1996, который работает в качестве Ultra HD 4К, для онлайн просмотра которого требуется высокая скорость вашего интернет-соединения!</p>
+						</div>
+						<div class="related tcarusel">
+							<div class="rel-title">Рекомендуем к просмотру:</div>
+							<div class="tcarusel-scroll clearfix">
+								<div class="mov tcarusel-item">
+									<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-10/thumbs/1570394135-1758529311-chuzhie.jpg');">
+										<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6195-chuzhie-1986.html'">
+											<span class="fa fa-play"></span>
+										</div>
+									</div>
+									<a class="mov-t" href="6195-chuzhie-1986.html" title="Чужие (1986)">Чужие (1986)</a>
+									<div class="movie-text">
+										<ul class="movie-lines">
+											<li>
+												<div class="ml-label">Жанр:</div>
+												<div class="ml-desc">ужасы, фантастика, боевик, триллер, приключения</div>
+											</li>
+											<li>
+												<div class="ml-label">Страна:</div>
+												<div class="ml-desc">США, Великобритания</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="mov tcarusel-item">
+									<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-09/thumbs/1569189475-1783430633-gadkiy-ya-3.jpg');">
+										<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6191-gadkiy-ya-3-2017.html'">
+											<span class="fa fa-play"></span>
+										</div>
+									</div>
+									<a class="mov-t" href="6191-gadkiy-ya-3-2017.html" title="Гадкий я 3 (2017)">Гадкий я 3 (2017)</a>
+									<div class="movie-text">
+										<ul class="movie-lines">
+											<li>
+												<div class="ml-label">Жанр:</div>
+												<div class="ml-desc">мультфильм, фантастика, фэнтези, комедия, приключения, семейный</div>
+											</li>
+											<li>
+												<div class="ml-label">Страна:</div>
+												<div class="ml-desc">США</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="mov tcarusel-item">
+									<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-08/thumbs/1565383913-436244145-otryad-samoubiyc.jpg');">
+										<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6161-otryad-samoubiyc-2016.html'">
+											<span class="fa fa-play"></span>
+										</div>
+									</div>
+									<a class="mov-t" href="6161-otryad-samoubiyc-2016.html" title="Отряд самоубийц (2016)">Отряд самоубийц (2016)</a>
+									<div class="movie-text">
+										<ul class="movie-lines">
+											<li>
+												<div class="ml-label">Жанр:</div>
+												<div class="ml-desc">фантастика, фэнтези, боевик, приключения</div>
+											</li>
+											<li>
+												<div class="ml-label">Страна:</div>
+												<div class="ml-desc">США</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="mov tcarusel-item">
+									<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-08/thumbs/1565221867-858182100-missiya-nevypolnima-protokol-fantom.jpg');">
+										<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6102-missiya-nevypolnima-4-protokol-fantom-2011.html'">
+											<span class="fa fa-play"></span>
+										</div>
+									</div>
+									<a class="mov-t" href="6102-missiya-nevypolnima-4-protokol-fantom-2011.html" title="Миссия невыполнима 4: Протокол Фантом (2011)">Миссия невыполнима 4: Протокол Фантом (2011)</a>
+									<div class="movie-text">
+										<ul class="movie-lines">
+											<li>
+												<div class="ml-label">Жанр:</div>
+												<div class="ml-desc">боевик, триллер, приключения</div>
+											</li>
+											<li>
+												<div class="ml-label">Страна:</div>
+												<div class="ml-desc">США, ОАЭ, Чехия, Россия, Индия, Канада</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="mov tcarusel-item">
+									<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-08/thumbs/1565217147-939020328-neboskreb.jpg');">
+										<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6071-neboskreb-2018.html'">
+											<span class="fa fa-play"></span>
+										</div>
+									</div>
+									<a class="mov-t" href="6071-neboskreb-2018.html" title="Небоскреб (2018)">Небоскреб (2018)</a>
+									<div class="movie-text">
+										<ul class="movie-lines">
+											<li>
+												<div class="ml-label">Жанр:</div>
+												<div class="ml-desc">боевик, триллер, приключения</div>
+											</li>
+											<li>
+												<div class="ml-label">Страна:</div>
+												<div class="ml-desc">Гонконг, США</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="tcarusel-prev">
+								<span class="fa fa-arrow-left"></span>
+							</div>
+							<div class="tcarusel-next">
+								<span class="fa fa-arrow-right"></span>
+							</div>
+						</div>
+					</article>
+					<div class="full-comms ignore-select" id="full-comms">
+						<div class="add-commbtn button ic-l" id="add-commbtn">
+							<span class="fa fa-plus"></span>Комментировать
 
 
-      <div class="vdd-element">
+						</div>
+						<form  method="post" action="{% url 'add_review' movie.id %}" name="dle-comments-form" id="dle-comments-form" >
+							<!--noindex-->
+                            {% csrf_token %}
+							<div class="add-comm-form clearfix" id="add-comm-form">
+								<div class="ac-title">Прокомментировать
 
 
-
-      <div class="tabs-b video-box">
-
-         <div class="vim-preroll vim-overroll">
-            <iframe src="../farsihd.info/movie/5b0ab25fcd8b2a22fe33e5ea5d0504fe/iframe@b=US" width="884" height="500" frameborder="0" allowfullscreen=""></iframe></div><script type='text/javascript' id='s-6504e098f19b416e'>(function(){ var v = document.createElement('script'); v.type = 'text/javascript'; v.async = true; v.src = '../https@vimvio.ru/video/@t=overroll&p=9085&ot=embeded&sig=6504e098f19b416e'; v.charset = 'utf-8'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(v, s); })();</script>
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <div class="tabs-b video-box">
-         <iframe src="trailer-cdn/6199/default.htm" width="610" height="370" frameborder="0" allowfullscreen></iframe>
-      </div>
-
-      </div>
-
-
-      <span style="text-align: center;width: 100%;display: inline-block;color: #bdb81d;">Обязательно выберите в правом нижнем углу плеера качество (4К) 2160</span>
-
-      <!--noindex--><div class="sorry-rek">* Уважаемые зрители, реклама в плеере от нас не зависит. Приносим извинения за это…</div><!--/noindex-->
-
-
-
-   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   <div class="cols-mov full-soc clearfix ignore-select full-soc_pt15">
-         <span>Это лучшая благодарность за нашу работу!</span>
-         <script src="../yastatic.net/share2/share.js" async="async"></script>
-         <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,gplus,twitter" data-size="s" data-title="День независимости (1996)" data-image="" data-description=""></div>
-   </div>
-
-
-
-
-
-   <div class="sub-text clearfix ignore-select">
-      <span class="fa fa-warning"></span>
-      <p>Главным отличием от других онлайн кинотеатров является плеер фильма День независимости 1996, который работает в качестве Ultra HD 4К, для онлайн просмотра которого требуется высокая скорость вашего интернет-соединения!</p>
-   </div>
-
-
-
-   <div class="related tcarusel">
-      <div class="rel-title">Рекомендуем к просмотру:</div>
-      <div class="tcarusel-scroll clearfix">
-         <div class="mov tcarusel-item">
-	<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-10/thumbs/1570394135-1758529311-chuzhie.jpg');">
-		<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6195-chuzhie-1986.html'"><span class="fa fa-play"></span></div>
-	</div>
-	<a class="mov-t" href="6195-chuzhie-1986.html" title="Чужие (1986)">Чужие (1986)</a>
-	<div class="movie-text">
-			<ul class="movie-lines">
-				<li><div class="ml-label">Жанр:</div> <div class="ml-desc">ужасы, фантастика, боевик, триллер, приключения</div></li>
-				<li><div class="ml-label">Страна:</div> <div class="ml-desc">США, Великобритания</div></li>
-			</ul>
-	</div>
-</div><div class="mov tcarusel-item">
-	<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-09/thumbs/1569189475-1783430633-gadkiy-ya-3.jpg');">
-		<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6191-gadkiy-ya-3-2017.html'"><span class="fa fa-play"></span></div>
-	</div>
-	<a class="mov-t" href="6191-gadkiy-ya-3-2017.html" title="Гадкий я 3 (2017)">Гадкий я 3 (2017)</a>
-	<div class="movie-text">
-			<ul class="movie-lines">
-				<li><div class="ml-label">Жанр:</div> <div class="ml-desc">мультфильм, фантастика, фэнтези, комедия, приключения, семейный</div></li>
-				<li><div class="ml-label">Страна:</div> <div class="ml-desc">США</div></li>
-			</ul>
-	</div>
-</div><div class="mov tcarusel-item">
-	<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-08/thumbs/1565383913-436244145-otryad-samoubiyc.jpg');">
-		<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6161-otryad-samoubiyc-2016.html'"><span class="fa fa-play"></span></div>
-	</div>
-	<a class="mov-t" href="6161-otryad-samoubiyc-2016.html" title="Отряд самоубийц (2016)">Отряд самоубийц (2016)</a>
-	<div class="movie-text">
-			<ul class="movie-lines">
-				<li><div class="ml-label">Жанр:</div> <div class="ml-desc">фантастика, фэнтези, боевик, приключения</div></li>
-				<li><div class="ml-label">Страна:</div> <div class="ml-desc">США</div></li>
-			</ul>
-	</div>
-</div><div class="mov tcarusel-item">
-	<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-08/thumbs/1565221867-858182100-missiya-nevypolnima-protokol-fantom.jpg');">
-		<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6102-missiya-nevypolnima-4-protokol-fantom-2011.html'"><span class="fa fa-play"></span></div>
-	</div>
-	<a class="mov-t" href="6102-missiya-nevypolnima-4-protokol-fantom-2011.html" title="Миссия невыполнима 4: Протокол Фантом (2011)">Миссия невыполнима 4: Протокол Фантом (2011)</a>
-	<div class="movie-text">
-			<ul class="movie-lines">
-				<li><div class="ml-label">Жанр:</div> <div class="ml-desc">боевик, триллер, приключения</div></li>
-				<li><div class="ml-label">Страна:</div> <div class="ml-desc">США, ОАЭ, Чехия, Россия, Индия, Канада</div></li>
-			</ul>
-	</div>
-</div><div class="mov tcarusel-item">
-	<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-08/thumbs/1565217147-939020328-neboskreb.jpg');">
-		<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6071-neboskreb-2018.html'"><span class="fa fa-play"></span></div>
-	</div>
-	<a class="mov-t" href="6071-neboskreb-2018.html" title="Небоскреб (2018)">Небоскреб (2018)</a>
-	<div class="movie-text">
-			<ul class="movie-lines">
-				<li><div class="ml-label">Жанр:</div> <div class="ml-desc">боевик, триллер, приключения</div></li>
-				<li><div class="ml-label">Страна:</div> <div class="ml-desc">Гонконг, США</div></li>
-			</ul>
-	</div>
-</div>
-      </div>
-      <div class="tcarusel-prev">
-         <span class="fa fa-arrow-left"></span>
-      </div>
-      <div class="tcarusel-next">
-         <span class="fa fa-arrow-right"></span>
-      </div>
-   </div>
-</article>
-<div class="full-comms ignore-select" id="full-comms">
-   <div class="add-commbtn button ic-l" id="add-commbtn">
-      <span class="fa fa-plus"></span>Комментировать</div>
-   <form  method="post" name="dle-comments-form" id="dle-comments-form" ><!--noindex-->
-<div class="add-comm-form clearfix" id="add-comm-form">
-
-	<div class="ac-title">Прокомментировать <span class="fa fa-chevron-down"></span></div>
-	<div class="ac-av img-box" id="ac-av"></div>
-
-
-
-
-
-
-
-
-
-
-			<div class="ac-inputs clearfix">
-				<input type="text" maxlength="35" name="name" id="name" placeholder="Ваше имя" />
-				<input type="text" maxlength="35" name="mail" id="mail" placeholder="Ваш e-mail (необязательно)" />
-			</div>
-
-
-			<div class="ac-textarea"><link rel="stylesheet" href="engine/editor/jscripts/froala/fonts/font-awesome.css">
-<link rel="stylesheet" href="engine/editor/jscripts/froala/css/editor.css">
-<script type="text/javascript">
+									<span class="fa fa-chevron-down"></span>
+								</div>
+								<div class="ac-av img-box" id="ac-av"></div>
+								<div class="ac-inputs clearfix">
+									<input type="text" maxlength="35" name="name" id="name" placeholder="Ваше имя" />
+									<input type="text" maxlength="35" name="mail" id="mail" placeholder="Ваш e-mail (необязательно)" />
+								</div>
+								<div class="ac-textarea">
+									<link rel="stylesheet" href="engine/editor/jscripts/froala/fonts/font-awesome.css">
+										<link rel="stylesheet" href="engine/editor/jscripts/froala/css/editor.css">
+											<script type="text/javascript">
 	var text_upload = "Загрузка файлов и изображений на сервер";
 </script>
-<div class="wseditor"><textarea id="comments" name="comments" rows="10" cols="50" class="ajaxwysiwygeditor"></textarea></div></div>
+											<div class="wseditor">
+												<textarea id="comments" name="comments" rows="10" cols="50" class="ajaxwysiwygeditor"></textarea>
+											</div>
+										</div>
+										<div class="ac-protect">
+											<div class="sep-input clearfix">
+												<div class="label">
+													<span>Поставьте галочку, если потребуется укажите на верные изображения:</span>
+													<span class="impot">*</span>
+												</div>
+												<div class="input">
+													<div class="g-recaptcha" data-sitekey="6LfwIDEUAAAAAKGZuJXUKyGoh78j1AuOkSYmrwdm" data-theme="light"></div>
+												</div>
+											</div>
+										</div>
+										<div class="ac-submit">
+											<button name="submit" type="submit">Отправить</button>
+										</div>
+									</div>
+									<!--/noindex-->
+									<input type="hidden" name="subaction" value="addcomment" />
+									<input type="hidden" name="post_id" id="post_id" value="6199" />
+								</form>
+								<script src='../https@www.google.com/recaptcha/api.js@hl=ru' async defer></script>
+								<div class="comments-items">
+									<form method="post" action="" name="dlemasscomments" id="dlemasscomments">
 
+										<div id="dle-comments-list">
+											<div id="dle-ajax-comments"></div>
+											<a name="comment"></a>
+											<ol class="comments-tree-list">
+												<li id="comments-tree-item-6832" class="comments-tree-item">
+													<div id="comment-id-6832">
+														<div class="comm-item clearfix">
+															<div class="comm-one clearfix">
+																<div class="comm-av img-box">
+																	<img src="{% static '/templates/Default/dleimages/noavatar.png' %}" alt="ольга">
+																	</div>
+																	<div class="comm-meta flex-col">
+																		<div class="comm-author">Ольга</div>
+																		<div class="comm-group">Гости</div>
+																	</div>
+																	<div class="comm-meta flex-col">
+																		<div class="comm-date">22 ноября 2019 19:14</div>
+																		<div class="comm-num">
+																			<span class="fa fa-comment-o"></span> 0
 
-			<div class="ac-protect">
+																		</div>
+																	</div>
+																	<div class="comm-meta flex-col comm-ratebox">
+																		<div class="comm-rate">
+																			<a href="#" onclick="doCommentsRate('plus', '6832'); return false;">
+																				<span class="fa fa-plus"></span>
+																			</a>
+																			<a href="#" onclick="doCommentsRate('minus', '6832'); return false;">
+																				<span class="fa fa-minus"></span>
+																			</a>
+																			<span id="comments-ratig-layer-6832" class="ignore-select">
+																				<span class="ratingtypeplusminus ignore-select ratingminus">-1</span>
+																			</span>
+																		</div>
+																	</div>
+																</div>
+																<div class="comm-two">
+																	<div class="comm-body clearfix">
+																		<div id="comm-id-6832">Фильм красивый,животные , как живые... НО перевод, это нечто!!! 3 из 10...</div>
+																	</div>
+																</div>
+																<div class="comm-three">
+																	<ul class="clearfix">
+																		<li>
+																			<a onclick="dle_reply('6832', '0', '1'); return false;" href="#">
+																				<span class="fa fa-reply"></span>Ответить
 
+																			</a>
+																		</li>
+																		<li class="comm-q">
+																			<a onmouseover="dle_copy_quote('Ольга');" href="#" onclick="dle_ins('6832'); return false;">
+																				<span class="fa fa-quote-right"></span>Цитата
 
-
-				<div class="sep-input clearfix">
-					<div class="label"><span>Поставьте галочку, если потребуется укажите на верные изображения:</span><span class="impot">*</span></div>
-					<div class="input"><div class="g-recaptcha" data-sitekey="6LfwIDEUAAAAAKGZuJXUKyGoh78j1AuOkSYmrwdm" data-theme="light"></div></div>
-				</div>
-
-			</div>
-
-
-	<div class="ac-submit"><button name="submit" type="submit">Отправить</button></div>
-
-</div>
-<!--/noindex-->
-		<input type="hidden" name="subaction" value="addcomment" />
-		<input type="hidden" name="post_id" id="post_id" value="6199" /></form><script src='../https@www.google.com/recaptcha/api.js@hl=ru' async defer></script>
-</div>
-<div id="dle-ajax-comments"></div>
-</div>
-               </div>
-
-
-            </div>
+																			</a>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</li>
+													<div id="comment-id-6799">
+														<div class="comm-item clearfix">
+															<div class="comm-one clearfix">
+																<div class="comm-av img-box">
+																	<img src="{% static '/templates/Default/dleimages/noavatar.png' %}" alt="Maksik">
+																	</div>
+																	<div class="comm-meta flex-col">
+																		<div class="comm-author">Maksik</div>
+																		<div class="comm-group">Гости</div>
+																	</div>
+																	<div class="comm-meta flex-col">
+																		<div class="comm-date">27 октября 2019 23:36</div>
+																		<div class="comm-num">
+																			<span class="fa fa-comment-o"></span> 0
+																		</div>
+																	</div>
+																	<div class="comm-meta flex-col comm-ratebox">
+																		<div class="comm-rate">
+																			<a href="#" onclick="doCommentsRate('plus', '6799'); return false;">
+																				<span class="fa fa-plus"></span>
+																			</a>
+																			<a href="#" onclick="doCommentsRate('minus', '6799'); return false;">
+																				<span class="fa fa-minus"></span>
+																			</a>
+																			<span id="comments-ratig-layer-6799" class="ignore-select">
+																				<span class="ratingtypeplusminus ignore-select ratingplus">+1</span>
+																			</span>
+																		</div>
+																	</div>
+																</div>
+																<div class="comm-two">
+																	<div class="comm-body clearfix">
+																		<div id="comm-id-6799">Интиресный и динамический фильм,в стиле люка бессона,всем кто пишет всякое говнище:а вм чего надо то,истинную работу цру и кгб?Это просто фильм от хорошего режисёра ИДИОТЫ,а не историческая достоверность...</div>
+																	</div>
+																</div>
+																<div class="comm-three">
+																	<ul class="clearfix">
+																		<li>
+																			<a onclick="dle_reply('6799', '0', '1'); return false;" href="#">
+																				<span class="fa fa-reply"></span>Ответить
+																			</a>
+																		</li>
+																		<li class="comm-q">
+																			<a onmouseover="dle_copy_quote('Maksik');" href="#" onclick="dle_ins('6799'); return false;">
+																				<span class="fa fa-quote-right"></span>Цитата
+																			</a>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</ol>
+												</div>
+											</form>
+											<!--dlenavigationcomments-->
+										</div>
+									</div>
+									<div id="dle-ajax-comments"></div>
+								</div>
+							</div>
+						</div>
 {% endblock movie %}
