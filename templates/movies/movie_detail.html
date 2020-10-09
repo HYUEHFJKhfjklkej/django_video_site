@@ -93,7 +93,7 @@
 					<div style="margin-left: 40px; margin-bottom: 20px;" id="vid_over_float" vid_el_width="600px" vid_el_height="320px"></div>
 
 					<div class="mov-desc-text full-text clearfix">
-						<p>{{ movie.description }}</p>
+						<p>{{ movie.description|safe }}</p>
 						<p class="full-key">Предлагаем Вам посмотреть аниме «{{ movie.title }}» без китайских субтитров, титров и без иероглифов, а также с наилучшим звуком и переводом на русский язык.</p>
 						<p></p>
 					</div>
