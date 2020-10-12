@@ -1,6 +1,7 @@
 {% extends 'movies/base.html' %}
 {% load static %}
 {% block title %} {{ movie.title }} {% endblock title %}
+{% load movie_tag %}
 
 {% block movie %}
 
@@ -57,7 +58,9 @@
 									<div class="mov-label">Режиссер:</div>
 									<div class="mov-desc">
                   {% for director in movie.directors.all %}
+                      <a href="{{ director.get_absolute_url }}">
                      {{ director.name }}
+                      </a>
                   {% endfor %}
                </div>
 								</li>
@@ -69,7 +72,9 @@
 									<div class="mov-label">Герои:</div>
 									<div class="mov-desc mov-desc_actor">
                   {% for hero in movie.heroes.all %}
-                     {{ hero.name }},
+                     <a href="{{ hero.get_absolute_url }}">
+                                    {{ hero.name }},
+                            </a>
                   {% endfor %}
                </div>
 								</li>
@@ -157,106 +162,8 @@
 						<div class="related tcarusel">
 							<div class="rel-title">Рекомендуем к просмотру:</div>
 							<div class="tcarusel-scroll clearfix">
-								<div class="mov tcarusel-item">
-									<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-10/thumbs/1570394135-1758529311-chuzhie.jpg');">
-										<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6195-chuzhie-1986.html'">
-											<span class="fa fa-play"></span>
-										</div>
-									</div>
-									<a class="mov-t" href="6195-chuzhie-1986.html" title="Чужие (1986)">Чужие (1986)</a>
-									<div class="movie-text">
-										<ul class="movie-lines">
-											<li>
-												<div class="ml-label">Жанр:</div>
-												<div class="ml-desc">ужасы, фантастика, боевик, триллер, приключения</div>
-											</li>
-											<li>
-												<div class="ml-label">Страна:</div>
-												<div class="ml-desc">США, Великобритания</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<div class="mov tcarusel-item">
-									<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-09/thumbs/1569189475-1783430633-gadkiy-ya-3.jpg');">
-										<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6191-gadkiy-ya-3-2017.html'">
-											<span class="fa fa-play"></span>
-										</div>
-									</div>
-									<a class="mov-t" href="6191-gadkiy-ya-3-2017.html" title="Гадкий я 3 (2017)">Гадкий я 3 (2017)</a>
-									<div class="movie-text">
-										<ul class="movie-lines">
-											<li>
-												<div class="ml-label">Жанр:</div>
-												<div class="ml-desc">мультфильм, фантастика, фэнтези, комедия, приключения, семейный</div>
-											</li>
-											<li>
-												<div class="ml-label">Страна:</div>
-												<div class="ml-desc">США</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<div class="mov tcarusel-item">
-									<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-08/thumbs/1565383913-436244145-otryad-samoubiyc.jpg');">
-										<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6161-otryad-samoubiyc-2016.html'">
-											<span class="fa fa-play"></span>
-										</div>
-									</div>
-									<a class="mov-t" href="6161-otryad-samoubiyc-2016.html" title="Отряд самоубийц (2016)">Отряд самоубийц (2016)</a>
-									<div class="movie-text">
-										<ul class="movie-lines">
-											<li>
-												<div class="ml-label">Жанр:</div>
-												<div class="ml-desc">фантастика, фэнтези, боевик, приключения</div>
-											</li>
-											<li>
-												<div class="ml-label">Страна:</div>
-												<div class="ml-desc">США</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<div class="mov tcarusel-item">
-									<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-08/thumbs/1565221867-858182100-missiya-nevypolnima-protokol-fantom.jpg');">
-										<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6102-missiya-nevypolnima-4-protokol-fantom-2011.html'">
-											<span class="fa fa-play"></span>
-										</div>
-									</div>
-									<a class="mov-t" href="6102-missiya-nevypolnima-4-protokol-fantom-2011.html" title="Миссия невыполнима 4: Протокол Фантом (2011)">Миссия невыполнима 4: Протокол Фантом (2011)</a>
-									<div class="movie-text">
-										<ul class="movie-lines">
-											<li>
-												<div class="ml-label">Жанр:</div>
-												<div class="ml-desc">боевик, триллер, приключения</div>
-											</li>
-											<li>
-												<div class="ml-label">Страна:</div>
-												<div class="ml-desc">США, ОАЭ, Чехия, Россия, Индия, Канада</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<div class="mov tcarusel-item">
-									<div class="mov-i img-box" style="background-image: url('uploads/posts/2019-08/thumbs/1565217147-939020328-neboskreb.jpg');">
-										<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='6071-neboskreb-2018.html'">
-											<span class="fa fa-play"></span>
-										</div>
-									</div>
-									<a class="mov-t" href="6071-neboskreb-2018.html" title="Небоскреб (2018)">Небоскреб (2018)</a>
-									<div class="movie-text">
-										<ul class="movie-lines">
-											<li>
-												<div class="ml-label">Жанр:</div>
-												<div class="ml-desc">боевик, триллер, приключения</div>
-											</li>
-											<li>
-												<div class="ml-label">Страна:</div>
-												<div class="ml-desc">Гонконг, США</div>
-											</li>
-										</ul>
-									</div>
-								</div>
+                        {% recomend_movies %}
+
 							</div>
 							<div class="tcarusel-prev">
 								<span class="fa fa-arrow-left"></span>

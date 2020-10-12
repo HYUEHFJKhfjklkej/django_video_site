@@ -1,5 +1,6 @@
+{% load movie_tag %}
 {% load static %}
-
+{% load movie_tag %}
 
    <style>
       @media screen and (max-width: 470px) {
@@ -57,7 +58,7 @@
       -->
       <div class="main center">
          <header class="header" id="header">
-            <a href="default.htm" class="logotype" title="На главную">ANICHAN</a>
+            <a href="/" class="logotype" title="На главную">ANICHAN</a>
             <span class="underlogo">братьям и сестрам посвещаеться</span>
             <div class="search-box">
                <form id="quicksearch" method="post">
@@ -80,20 +81,11 @@
 
          <!--noindex-->
          <div class="related tcarusel carou-top">
-            <div class="rel-title">Популярные:</div>
-            <div class="tcarusel-scroll clearfix">
-               <div class="mov tcarusel-item" title="Анна (2019)">
-   <div class="mov-i img-box" style="background-image: url({% static 'uploads/posts/2019-09/thumbs/1569250495-352689888-anna.jpg' %});">
-      <div class="mov-mask flex-col ps-link" data-link="ur/6193-anna-2019.html">
-         <span class="fa fa-play"></span>
-      </div>
-   </div>
-   <a class="mov-t nowrap" href="6193-anna-2019.html">Анна (2019)</a>
-   <div class="mov-c">
-      <span><!--noindex-->Реж. Люк Бессон<br>боевик, триллер<!--/noindex--></span>
-   </div>
 
-</div>
+            <div class="rel-title">Последнее добавленное:</div>
+            <div class="tcarusel-scroll clearfix">
+
+                {% get_last_movies %}
             </div>
             <div class="tcarusel-prev">
                <span class="fa fa-arrow-left"></span>
@@ -109,4 +101,3 @@
 
 
          <!-- end cols -->
-

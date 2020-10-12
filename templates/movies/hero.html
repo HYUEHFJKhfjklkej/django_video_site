@@ -1,0 +1,136 @@
+{% extends 'movies/base.html' %}
+{% load static %}
+{% block title %} {{ hero.name }} {% endblock title %}
+{% load movie_tag %}
+
+{% block movie %}
+
+<div class="content">
+	<span id="dle-speedbar">
+		<span itemscope itemtype="/">
+			<a href="/" itemprop="url">
+				<span itemprop="title">ANICHAN</span>
+			</a>
+		</span> &raquo;
+
+
+		<span itemscope itemtype="">
+			<a href="/" itemprop="url">
+				<span itemprop="title">Фильмы в 4К</span>
+			</a>
+		</span> &raquo; {{ movie.title }}
+
+
+	</span>
+	<div class="full-wrap clearfix">
+		<div id='dle-content'>
+			<article class="full">
+				<header class="full-title">
+					<h1>{{ movie.japantitle }}</h1>
+				</header>
+				<div class="cols-mov clearfix ignore-select">
+					<div class="col-mov-left">
+						<div class="mov-img">
+							<img src="{{ hero.image.url }}" alt="{{ hero.title }}">
+
+							</div>
+							<div class="rate3 clearfix rate-f">
+								<div class="pluss" id="pluss-6199" onclick="doRateLD('plus', '6199');">
+									<span class="fa fa-thumbs-o-up"></span>
+								</div>
+								<div class="minuss" id="minuss-6199" onclick="doRateLD('minus', '6199');">
+									<span class="fa fa-thumbs-o-down"></span>
+								</div>
+								<span id="ratig-layer-6199" class="ignore-select">
+									<span class="ratingtypeplusminus ignore-select ratingplus" >+14</span>
+								</span>
+								<span id="vote-num-id-6199">20</span>
+							</div>
+
+						</div>
+						<!-- end col-mov-left -->
+						<div class="col-mov-right">
+							<ul class="mov-list">
+								<li>
+									<div class="mov-label">Имя:</div>
+									<div class="mov-desc">
+                  {{ hero.name }}
+               </div>
+								</li>
+
+								<li>
+									<div class="mov-label">Герои аниме:</div>
+									<div class="mov-desc mov-desc_actor">
+                  {% for hero in hero.film_hero.all %}
+                            {{ hero.title }},
+                        {% endfor %}
+               </div>
+								</li>
+								<li>
+									<div class="mov-label">Режисер В:</div>
+									<div class="mov-desc">
+                  {% for movie in hero.film_director.all %}
+                                {{ movie.title }},
+                            {% endfor %}
+
+								</li>
+
+                                <li>
+                                    <div class="mov-label">Возраст:</div>
+                                    <div class="mov-desc">{{ hero.age }} лет</div>
+                                </li>
+							</ul>
+						</div>
+						<!-- end col-mov-right -->
+					</div>
+					<!-- end cols-mov -->
+					<div style="margin-left: 40px; margin-bottom: 20px;" id="vid_over_float" vid_el_width="600px" vid_el_height="320px"></div>
+
+					<div class="mov-desc-text full-text clearfix">
+						<p>{{ hero.description|safe }}</p>
+						<p class="full-key">Предлагаем Вам посмотреть аниме «{{ movie.title }}» без китайских субтитров, титров и без иероглифов, а также с наилучшим звуком и переводом на русский язык.</p>
+						<p></p>
+					</div>
+{#					<fieldset class="skrin">#}
+{#						<legend>Скриншоты</legend>#}
+{#                        {% for image in movie.movieshots_set.all %}#}
+{##}
+{##}
+{#						<a href="{{ image.image.url }}" onclick="return hs.expand(this)">#}
+{#							<img src="{{ image.image.url }}" alt="{{ image.description }}">#}
+{#							</a>#}
+{#                        {% endfor %}#}
+{##}
+{##}
+{#						</fieldset>#}
+
+						<div class="tabsbox ignore-select">
+
+
+							<div class="vdd-element">
+
+
+						<div class="related tcarusel">
+							<div class="rel-title">Рекомендуем к просмотру:</div>
+							<div class="tcarusel-scroll clearfix">
+                        {% recomend_movies %}
+
+							</div>
+							<div class="tcarusel-prev">
+								<span class="fa fa-arrow-left"></span>
+							</div>
+							<div class="tcarusel-next">
+								<span class="fa fa-arrow-right"></span>
+							</div>
+						</div>
+					</article>
+					<div class="full-comms ignore-select" id="full-comms">
+
+
+									</div>
+									<div id="dle-ajax-comments"></div>
+								</div>
+							</div>
+						</div>
+
+{% endblock movie %}

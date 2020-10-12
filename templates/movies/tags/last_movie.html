@@ -1,0 +1,18 @@
+ {% for movie in last_movies %}
+<div class="mov tcarusel-item" title="{{ movie.title }}">
+   <div class="mov-i img-box" style="background-image: url({{ movie.poster.url }});">
+      <div class="mov-mask flex-col ps-link" data-link="{{ movie.get_absolute_url }}">
+         <span class="fa fa-play"></span>
+      </div>
+   </div>
+   <a class="mov-t nowrap" href="{{ movie.get_absolute_url }}">{{ movie.title }}</a>
+   <div class="mov-c">
+      <span>Реж.{% for director in movie.directors.all %}
+                     {{ director.name }}
+                  {% endfor %}<br>{% for ganr in movie.genre.all %}
+                     {{ ganr.name }},
+                  {% endfor %}<!--/noindex--></span>
+   </div>
+
+</div>
+ {% endfor %}

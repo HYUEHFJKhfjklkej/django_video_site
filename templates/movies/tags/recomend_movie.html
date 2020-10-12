@@ -1,0 +1,25 @@
+{% for movie in recomend_movies %}
+<div class="mov tcarusel-item">
+
+									<div class="mov-i img-box" style="background-image: url('{{ movie.poster.url }}');">
+										<div class="mov-mask flex-col ps-link-new" onclick="document.location.href='{{ movie.get_absolute_url }}'">
+											<span class="fa fa-play"></span>
+										</div>
+									</div>
+									<a class="mov-t" href="{{ movie.get_absolute_url }}" title="{{ movie.title }}">{{ movie.title }}</a>
+									<div class="movie-text">
+										<ul class="movie-lines">
+											<li>
+												<div class="ml-label">Жанр:</div>
+												<div class="ml-desc">{% for ganr in movie.genre.all %}
+                     {{ ganr.name }},
+                  {% endfor %}</div>
+											</li>
+											<li>
+												<div class="ml-label">Страна:</div>
+												<div class="ml-desc">{{ movie.country }}</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+  {% endfor %}
